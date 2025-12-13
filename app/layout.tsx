@@ -5,22 +5,60 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Marketing by chatting with AI - #1 Marketing Platform for Shopify',
-  description: '10x the performance and 10x the output with AI Agents. The #1 Marketing Platform for Shopify.',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+  title: {
+    default: 'Orkestrate',
+    template: '%s | Orkestrate',
+  },
+  description:
+    'Orchestrate your existing marketing stack with agentic infrastructure that turns data into campaigns, journeys, and experiments across your channels.',
+  applicationName: 'Orkestrate',
+  keywords: [
+    'Orkestrate',
+    'AI marketing',
+    'agentic marketing',
+    'marketing automation',
+    'Shopify marketing',
+    'Klaviyo',
+    'Attentive',
+    'Braze',
+    'CDP',
+    'data warehouse',
+    'customer journeys',
+    'personalization',
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
   openGraph: {
+    type: 'website',
+    siteName: 'Orkestrate',
+    title: 'Orkestrate',
+    description:
+      'Orchestrate your existing marketing stack with agentic infrastructure that turns data into campaigns, journeys, and experiments across your channels.',
     images: [
       {
-        url: 'https://bolt.new/static/og_default.png',
+        url: '/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Orkestrate',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    images: [
-      {
-        url: 'https://bolt.new/static/og_default.png',
-      },
-    ],
+    title: 'Orkestrate',
+    description:
+      'Orchestrate your existing marketing stack with agentic infrastructure that turns data into campaigns, journeys, and experiments across your channels.',
+    images: ['/logo.png'],
   },
 };
 
