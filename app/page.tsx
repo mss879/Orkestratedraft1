@@ -34,7 +34,6 @@ import {
   Workflow,
   Zap,
 } from 'lucide-react';
-import LightRays from '@/components/LightRays';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import HowItWorks from '@/components/HowItWorks';
 import Footer from '@/components/Footer';
@@ -52,10 +51,10 @@ type InsightCard = {
 };
 
 const QUERIES = [
-  'where am I are loosing revenue',
-  'how can I optimise my campaigns for more revenue',
-  'Where is my stack the weakest today',
-  'What campaigns performed the best in the last year',
+  'Ask Orkestrate to create to a Black Friday campaign',
+  'Ask Orkestrate to suggest journeys to reduce churn from BFCM',
+  'Ask Orkestrate to create a Christmas wishlist campaign',
+  'Ask Orkestrate to implement changes in real time',
 ];
 
 export default function Home() {
@@ -156,46 +155,32 @@ export default function Home() {
 
       <section className="min-h-screen relative overflow-hidden flex items-center justify-center px-4 pt-28 pb-24">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-orange-50" />
-          <LightRays
-            raysOrigin="top-center"
-            raysColor="#EE5D25"
-            raysSpeed={1.5}
-            lightSpread={0.8}
-            rayLength={1.2}
-            followMouse={true}
-            mouseInfluence={0.1}
-            noiseAmount={0.1}
-            distortion={0.05}
-            saturation={1}
-            className="opacity-35"
-          />
+          <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_50%_100%,#E86233_0%,#ffffff_72%)]" />
         </div>
 
         <div className="max-w-6xl w-full text-center space-y-8 relative z-10">
           <div className="space-y-5 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
             <div className="flex items-center justify-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/60 px-3 py-1 text-xs font-medium text-foreground/80 backdrop-blur">
+              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs font-medium text-gray-900/90 backdrop-blur">
                 <span className="rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-semibold text-white">
                   New
                 </span>
                 <span>Orkestrate Intelligence is live</span>
-                <span className="text-foreground/50">→</span>
+                <span className="text-gray-900/50">→</span>
               </div>
             </div>
 
-            <h2 className="text-foreground/70 text-sm sm:text-base font-medium tracking-wide">
+            <h2 className="text-gray-900/70 text-sm sm:text-base font-medium tracking-wide">
               The Marketing Orchestration Platform
             </h2>
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-foreground leading-tight">
-              Marketing by <span className="text-orange-600">chatting</span>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 leading-tight lg:whitespace-nowrap">
+              Marketing made <span className="text-orange-600">smarter</span> and{' '}
+              <span className="text-orange-600">simple</span>
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl text-foreground/70 font-medium">
-              Unifies your data, channels, and agents in one interface.
-              <br />
-              Marketing made simple and better with Orkestrate intelligence.
+            <p className="text-base sm:text-lg md:text-xl text-gray-900/70 font-medium">
+              Orchestrate your agents, channels, and data in one interface with Orkestrate intelligence.
             </p>
           </div>
 
@@ -287,7 +272,11 @@ export default function Home() {
           </div>
 
           <div className="mt-10 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-150">
-            <div className="-mx-4 px-4 overflow-hidden pb-8">
+            <div className="-mx-4 px-4 overflow-hidden pb-8 relative">
+              {/* Left fade */}
+              <div className="pointer-events-none absolute left-0 top-0 bottom-8 w-24 z-10 bg-gradient-to-r from-white/90 to-transparent" />
+              {/* Right fade */}
+              <div className="pointer-events-none absolute right-0 top-0 bottom-8 w-24 z-10 bg-gradient-to-l from-white/90 to-transparent" />
               <div className="relative">
                 <div className="flex w-max gap-5 px-2 motion-safe:animate-marquee motion-reduce:animate-none">
                   {[...insightCards, ...insightCards].map((card, index) => (

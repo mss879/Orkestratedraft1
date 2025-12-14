@@ -10,7 +10,7 @@ const steps = [
       "Orkestrate ingests orders, browsing, campaigns and basic catalog data so it can see what you are already doing and where revenue is leaking."
     ],
     icon: Plug,
-    imageSrc: '/Connect%20your%20store.png',
+    imageSrc: '/work%20iamge%201.png',
     imageAlt: 'Connect your store and campaigns'
   },
   {
@@ -20,7 +20,7 @@ const steps = [
       "Category models bring instant pattern recognition for your niche so you are not waiting months for the system to learn from scratch."
     ],
     icon: Layers,
-    imageSrc: '/Choose%20your%20category%20.png',
+    imageSrc: '/work%20iamge%202.png',
     imageAlt: 'Choose your category profile'
   },
   {
@@ -30,7 +30,7 @@ const steps = [
       "Orkestrate turns that into cohorts, journeys and experiments across your channels."
     ],
     icon: MessageSquare,
-    imageSrc: '/Start%20chatting%20.png',
+    imageSrc: '/work%20iamge%203.png',
     imageAlt: 'Start chatting with your Orkestrator'
   },
   {
@@ -40,17 +40,17 @@ const steps = [
       "Approve and Orkestrate's agents create and schedule the actual campaigns in your connected tools."
     ],
     icon: CheckCircle2,
-    imageSrc: '/Approve%20plays.png',
+    imageSrc: '/work%20iamge%204.png',
     imageAlt: 'Approve plays and launch'
   },
   {
     title: "Learn, optimize and scale",
     items: [
-      "Every send, click and order feeds back into Orkestrate. Agents automatically promote what works.",
+      "Review the proposed plays in plain English. Tweak guardrails, budget and tone where needed.",
       "Over time you run far more campaigns and experiments with the same team while keeping performance and customer experience improving week after week."
     ],
     icon: TrendingUp,
-    imageSrc: '/Learn,%20optimize%20a.png',
+    imageSrc: '/work%20iamge%205.png',
     imageAlt: 'Learn, optimize and scale'
   }
 ];
@@ -76,11 +76,14 @@ export default function HowItWorks() {
         {steps.map((step, index) => (
           <div 
             key={index}
-            className={`bg-white border border-gray-200 rounded-3xl p-6 flex flex-col gap-10 sm:p-12 sm:gap-12 md:items-center shadow-sm hover:shadow-md transition-all duration-300 ${
+            className={`relative bg-white/20 backdrop-blur-2xl border border-orange-500/40 rounded-3xl p-6 flex flex-col gap-10 sm:p-12 sm:gap-12 md:items-center shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] hover:border-orange-500 hover:shadow-[0_8px_32px_0_rgba(232,98,51,0.15)] transition-all duration-500 overflow-hidden ${
               index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'
             }`}
           >
-            <div className="md:w-1/2 lg:w-[45%]">
+            {/* Glass texture overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-50 pointer-events-none" />
+            
+            <div className="relative z-10 md:w-1/2 lg:w-[45%]">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">{step.title}</h3>
               <ul className="grid gap-4">
                 {step.items.map((item, i) => (
@@ -91,9 +94,9 @@ export default function HowItWorks() {
                 ))}
               </ul>
             </div>
-            <div className="md:w-1/2 lg:w-[55%] flex items-center">
+            <div className="relative z-10 md:w-1/2 lg:w-[55%] flex items-center">
               <div
-                className={`w-full max-w-sm overflow-hidden rounded-xl lg:rounded-3xl border border-gray-200 bg-white ${
+                className={`relative w-full max-w-lg overflow-hidden rounded-xl lg:rounded-3xl border border-gray-200 bg-white ${
                   index % 2 === 1 ? 'md:mr-auto' : 'md:ml-auto'
                 }`}
               >
@@ -101,11 +104,14 @@ export default function HowItWorks() {
                   src={step.imageSrc}
                   alt={step.imageAlt}
                   width={1400}
-                  height={900}
+                  height={1100}
                   className="h-auto w-full object-cover"
                   sizes="(min-width: 1024px) 55vw, (min-width: 768px) 50vw, 100vw"
                   priority={index === 0}
                 />
+                <span className="absolute bottom-3 right-3 rounded-full bg-orange-500 px-3 py-1 text-xs font-bold text-white shadow-md">
+                  Step {index + 1}
+                </span>
               </div>
             </div>
           </div>
