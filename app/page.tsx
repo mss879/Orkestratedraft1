@@ -488,10 +488,22 @@ export default function Home() {
               <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900">
                 <span className="relative inline-block h-[1.15em] overflow-hidden align-baseline leading-none">
                   <span className="block animate-category-rotate leading-none">
-                    <span className="block h-[1.15em] leading-none bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Fashion &amp; apparel</span>
-                    <span className="block h-[1.15em] leading-none bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Beauty &amp; skincare</span>
-                    <span className="block h-[1.15em] leading-none bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Home &amp; lifestyle</span>
-                    <span className="block h-[1.15em] leading-none bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Fashion &amp; apparel</span>
+                    <span className="block h-[1.15em] leading-none whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
+                      Fashion &amp; apparel{' '}
+                      <span className="text-orange-600">AI Model</span>
+                    </span>
+                    <span className="block h-[1.15em] leading-none whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
+                      Beauty &amp; skincare{' '}
+                      <span className="text-orange-600">AI Model</span>
+                    </span>
+                    <span className="block h-[1.15em] leading-none whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
+                      Home &amp; lifestyle{' '}
+                      <span className="text-orange-600">AI Model</span>
+                    </span>
+                    <span className="block h-[1.15em] leading-none whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
+                      Fashion &amp; apparel{' '}
+                      <span className="text-orange-600">AI Model</span>
+                    </span>
                   </span>
                 </span>
               </h3>
@@ -508,9 +520,10 @@ export default function Home() {
 
           <div className="grid gap-8 lg:gap-10 lg:grid-cols-3 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-150">
             {/* Fashion Card */}
-            <div className="group relative flex flex-col justify-between rounded-[2.5rem] border border-gray-100 bg-white p-10 shadow-[0_2px_20px_rgba(0,0,0,0.02)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(221,59,47,0.1)]">
+            <div className="group relative flex flex-col justify-between rounded-[2.5rem] border border-white/70 bg-white/60 backdrop-blur-xl p-10 shadow-[0_10px_35px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.7)] transition-all duration-500 hover:-translate-y-2 hover:border-orange-200/60 hover:shadow-[0_30px_70px_rgba(221,59,47,0.12)] overflow-hidden">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/80 via-white/40 to-transparent opacity-70" />
               <div className="relative z-10">
-                <div className="mb-8 inline-flex p-4 rounded-2xl bg-orange-50/30 group-hover:bg-orange-50 transition-colors duration-500">
+                <div className="mb-8 inline-flex p-4 rounded-2xl bg-white/50 border border-white/70 backdrop-blur-md shadow-sm group-hover:border-orange-200/50 transition-colors duration-500">
                   <Image src="/fashion.png" alt="Fashion" width={64} height={64} className="object-contain drop-shadow-sm" />
                 </div>
                 <h4 className="mb-4 text-2xl font-bold text-gray-900">Fashion &amp; apparel</h4>
@@ -522,9 +535,9 @@ export default function Home() {
               {/* Floating Glass Insight */}
               <div className="relative mt-auto">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-100 to-orange-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur"></div>
-                <div className="relative rounded-2xl bg-white border border-gray-100 p-5 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-orange-100/50">
+                <div className="relative rounded-2xl bg-white/55 backdrop-blur-xl border border-white/70 p-5 shadow-[0_10px_30px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.65)] transition-all duration-500 group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)] group-hover:border-orange-200/60">
                   <div className="mb-3 flex items-center gap-2">
-                    <div className="p-1.5 rounded-full bg-orange-100/50 text-orange-600">
+                    <div className="p-1.5 rounded-full bg-orange-100/60 text-orange-700 border border-orange-200/50">
                       <Sparkles className="h-3.5 w-3.5" />
                     </div>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600/90">Model Insight</span>
@@ -537,9 +550,10 @@ export default function Home() {
             </div>
 
             {/* Beauty Card */}
-            <div className="group relative flex flex-col justify-between rounded-[2.5rem] border border-gray-100 bg-white p-10 shadow-[0_2px_20px_rgba(0,0,0,0.02)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(221,59,47,0.1)]">
+            <div className="group relative flex flex-col justify-between rounded-[2.5rem] border border-white/70 bg-white/60 backdrop-blur-xl p-10 shadow-[0_10px_35px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.7)] transition-all duration-500 hover:-translate-y-2 hover:border-orange-200/60 hover:shadow-[0_30px_70px_rgba(221,59,47,0.12)] overflow-hidden">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/80 via-white/40 to-transparent opacity-70" />
               <div className="relative z-10">
-                <div className="mb-8 inline-flex p-4 rounded-2xl bg-orange-50/30 group-hover:bg-orange-50 transition-colors duration-500">
+                <div className="mb-8 inline-flex p-4 rounded-2xl bg-white/50 border border-white/70 backdrop-blur-md shadow-sm group-hover:border-orange-200/50 transition-colors duration-500">
                   <Image src="/skincare.png" alt="Beauty" width={64} height={64} className="object-contain drop-shadow-sm" />
                 </div>
                 <h4 className="mb-4 text-2xl font-bold text-gray-900">Beauty &amp; skincare</h4>
@@ -551,9 +565,9 @@ export default function Home() {
               {/* Floating Glass Insight */}
               <div className="relative mt-auto">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-100 to-orange-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur"></div>
-                <div className="relative rounded-2xl bg-white border border-gray-100 p-5 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-orange-100/50">
+                <div className="relative rounded-2xl bg-white/55 backdrop-blur-xl border border-white/70 p-5 shadow-[0_10px_30px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.65)] transition-all duration-500 group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)] group-hover:border-orange-200/60">
                   <div className="mb-3 flex items-center gap-2">
-                    <div className="p-1.5 rounded-full bg-orange-100/50 text-orange-600">
+                    <div className="p-1.5 rounded-full bg-orange-100/60 text-orange-700 border border-orange-200/50">
                       <Sparkles className="h-3.5 w-3.5" />
                     </div>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600/90">Model Insight</span>
@@ -566,9 +580,10 @@ export default function Home() {
             </div>
 
             {/* Home Card */}
-            <div className="group relative flex flex-col justify-between rounded-[2.5rem] border border-gray-100 bg-white p-10 shadow-[0_2px_20px_rgba(0,0,0,0.02)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(221,59,47,0.1)]">
+            <div className="group relative flex flex-col justify-between rounded-[2.5rem] border border-white/70 bg-white/60 backdrop-blur-xl p-10 shadow-[0_10px_35px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.7)] transition-all duration-500 hover:-translate-y-2 hover:border-orange-200/60 hover:shadow-[0_30px_70px_rgba(221,59,47,0.12)] overflow-hidden">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/80 via-white/40 to-transparent opacity-70" />
               <div className="relative z-10">
-                <div className="mb-8 inline-flex p-4 rounded-2xl bg-orange-50/30 group-hover:bg-orange-50 transition-colors duration-500">
+                <div className="mb-8 inline-flex p-4 rounded-2xl bg-white/50 border border-white/70 backdrop-blur-md shadow-sm group-hover:border-orange-200/50 transition-colors duration-500">
                   <Image src="/home.png" alt="Home" width={64} height={64} className="object-contain drop-shadow-sm" />
                 </div>
                 <h4 className="mb-4 text-2xl font-bold text-gray-900">Home &amp; lifestyle</h4>
@@ -580,9 +595,9 @@ export default function Home() {
               {/* Floating Glass Insight */}
               <div className="relative mt-auto">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-100 to-orange-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur"></div>
-                <div className="relative rounded-2xl bg-white border border-gray-100 p-5 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-orange-100/50">
+                <div className="relative rounded-2xl bg-white/55 backdrop-blur-xl border border-white/70 p-5 shadow-[0_10px_30px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.65)] transition-all duration-500 group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)] group-hover:border-orange-200/60">
                   <div className="mb-3 flex items-center gap-2">
-                    <div className="p-1.5 rounded-full bg-orange-100/50 text-orange-600">
+                    <div className="p-1.5 rounded-full bg-orange-100/60 text-orange-700 border border-orange-200/50">
                       <Sparkles className="h-3.5 w-3.5" />
                     </div>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600/90">Model Insight</span>
