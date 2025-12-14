@@ -282,41 +282,44 @@ export default function Home() {
                   {[...insightCards, ...insightCards].map((card, index) => (
                     <div
                       key={`${card.title}-${index}`}
-                      className="w-[340px] sm:w-[380px] flex flex-col justify-between rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] transition-all duration-300 hover:shadow-[0_8px_32px_0_rgba(232,98,51,0.15)] hover:border-orange-500/50 hover:-translate-y-1 group"
+                      className="w-[340px] sm:w-[380px] flex flex-col justify-between rounded-[2rem] border border-white/30 bg-gradient-to-br from-white/40 via-white/10 to-white/5 backdrop-blur-2xl p-8 shadow-[0_8px_32px_0_rgba(31,38,135,0.1),inset_0_1px_0_0_rgba(255,255,255,0.4)] transition-all duration-500 hover:shadow-[0_20px_50px_0_rgba(232,98,51,0.2),inset_0_1px_0_0_rgba(255,255,255,0.6)] hover:border-orange-500/30 hover:-translate-y-2 group relative overflow-hidden"
                       aria-hidden={index >= insightCards.length}
                     >
-                      <div>
-                        <div className="flex items-start justify-between mb-5">
-                          <div className="flex items-center gap-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/55 text-[#DD3B2F] border border-white/50 group-hover:bg-[#DD3B2F] group-hover:text-white transition-colors duration-300">
-                              <card.Icon className="h-5 w-5" />
+                      {/* Shine effect */}
+                      <div className="absolute -inset-full top-0 block h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
+                      
+                      <div className="relative z-10">
+                        <div className="flex items-start justify-between mb-6">
+                          <div className="flex items-center gap-4">
+                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-[#DD3B2F] border border-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)] group-hover:bg-[#DD3B2F] group-hover:text-white group-hover:border-[#DD3B2F] transition-all duration-300">
+                              <card.Icon className="h-6 w-6" />
                             </div>
                             <div>
-                              <h4 className="text-base font-bold text-gray-900">{card.title}</h4>
-                              <div className="flex items-center gap-1.5 mt-0.5">
-                                <span className="relative flex h-2 w-2">
+                              <h4 className="text-lg font-bold text-gray-900">{card.title}</h4>
+                              <div className="flex items-center gap-2 mt-1">
+                                <span className="relative flex h-2.5 w-2.5">
                                   {card.pingClassName ? (
                                     <span
                                       className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${card.pingClassName}`}
                                     />
                                   ) : null}
-                                  <span className={`relative inline-flex rounded-full h-2 w-2 ${card.dotClassName}`} />
+                                  <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${card.dotClassName}`} />
                                 </span>
-                                <p className="text-xs font-medium text-gray-500">{card.metric}</p>
+                                <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">{card.metric}</p>
                               </div>
                             </div>
                           </div>
                         </div>
 
-                        <div className="mb-5 rounded-xl bg-white/45 p-4 border border-white/45 group-hover:border-orange-100 transition-colors">
-                          <p className="text-lg font-bold text-gray-900">{card.moneyTop}</p>
-                          <p className="mt-0.5 text-sm font-medium text-gray-700">{card.moneyBottom}</p>
+                        <div className="mb-6 rounded-2xl bg-white/10 p-5 border border-white/20 backdrop-blur-md shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)] group-hover:bg-white/20 group-hover:border-orange-500/20 transition-all duration-300">
+                          <p className="text-xl font-bold text-gray-900">{card.moneyTop}</p>
+                          <p className="mt-1 text-sm font-medium text-gray-700">{card.moneyBottom}</p>
                         </div>
 
-                        <p className="text-sm text-gray-600 leading-relaxed mb-6">{card.body}</p>
+                        <p className="text-base text-gray-700 leading-relaxed mb-8 font-medium">{card.body}</p>
                       </div>
 
-                      <button className="group/btn flex w-full items-center justify-center gap-2 rounded-xl bg-white border-2 border-gray-100 py-3 text-sm font-bold text-gray-900 transition-all hover:border-[#DD3B2F] hover:text-[#DD3B2F]">
+                      <button className="relative z-10 group/btn flex w-full items-center justify-center gap-2 rounded-xl bg-white/80 hover:bg-white border border-white/40 py-4 text-sm font-bold text-gray-900 transition-all shadow-sm hover:shadow-lg hover:text-[#DD3B2F] hover:scale-[1.02]">
                         {card.cta}
                         <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                       </button>
