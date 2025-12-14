@@ -278,11 +278,11 @@ export default function Home() {
               {/* Right fade */}
               <div className="pointer-events-none absolute right-0 top-0 bottom-8 w-24 z-10 bg-gradient-to-l from-white/90 to-transparent" />
               <div className="relative">
-                <div className="flex w-max gap-5 px-2 motion-safe:animate-marquee motion-reduce:animate-none">
+                <div className="flex w-max gap-5 px-2 motion-safe:animate-marquee motion-reduce:animate-none hover:[animation-play-state:paused]">
                   {[...insightCards, ...insightCards].map((card, index) => (
                     <div
                       key={`${card.title}-${index}`}
-                      className="w-[340px] sm:w-[380px] flex flex-col justify-between rounded-2xl border border-white/50 bg-white/55 backdrop-blur-md p-6 shadow-[0_2px_10px_rgba(0,0,0,0.06)] transition-all duration-300 hover:shadow-[0_16px_44px_rgba(0,0,0,0.12)] hover:border-orange-200 hover:-translate-y-1 group"
+                      className="w-[340px] sm:w-[380px] flex flex-col justify-between rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] transition-all duration-300 hover:shadow-[0_8px_32px_0_rgba(232,98,51,0.15)] hover:border-orange-500/50 hover:-translate-y-1 group"
                       aria-hidden={index >= insightCards.length}
                     >
                       <div>
