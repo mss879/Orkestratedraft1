@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { CheckCircle2, Plug, Layers, MessageSquare, TrendingUp } from 'lucide-react';
+import ScrollAnimationWrapper from './ScrollAnimationWrapper';
 
 const steps = [
   {
@@ -59,7 +60,7 @@ export default function HowItWorks() {
   return (
     <section className="bg-white py-20 relative overflow-hidden">
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
-      <div className="text-center mb-16">
+      <ScrollAnimationWrapper className="text-center mb-16">
         <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-1.5 mb-6 backdrop-blur-md">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
@@ -71,11 +72,11 @@ export default function HowItWorks() {
         <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
           Turn a small team into a high output marketing engine in 5 automated steps.
         </p>
-      </div>
+      </ScrollAnimationWrapper>
 
       <div className="flex flex-col gap-10">
         {steps.map((step, index) => (
-          <div 
+          <ScrollAnimationWrapper 
             key={index}
             className={`relative bg-white/35 backdrop-blur-xl border border-white/50 rounded-3xl p-6 flex flex-col gap-10 sm:p-12 sm:gap-12 md:items-center shadow-[0_8px_32px_rgba(0,0,0,0.10),inset_0_1px_0_rgba(255,255,255,0.55)] hover:bg-white/45 hover:border-orange-500/25 hover:shadow-[0_18px_60px_rgba(232,98,51,0.14),inset_0_1px_0_rgba(255,255,255,0.70)] transition-all duration-500 overflow-hidden ${
               index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'
@@ -117,7 +118,7 @@ export default function HowItWorks() {
                 </span>
               </div>
             </div>
-          </div>
+          </ScrollAnimationWrapper>
         ))}
       </div>
       </div>

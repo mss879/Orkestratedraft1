@@ -36,6 +36,7 @@ import FloatingNavbar from '@/components/FloatingNavbar';
 import HowItWorks from '@/components/HowItWorks';
 import Footer from '@/components/Footer';
 import TypewriterTextarea from '@/components/TypewriterTextarea';
+import ScrollAnimationWrapper from '@/components/ScrollAnimationWrapper';
 
 type InsightCard = {
   title: string;
@@ -127,7 +128,7 @@ export default function Home() {
         </div>
 
         <div className="max-w-6xl w-full text-center space-y-8 relative z-10">
-          <div className="space-y-5 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
+          <ScrollAnimationWrapper className="space-y-5">
             <div className="flex items-center justify-center">
               <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs font-medium text-gray-900/90 backdrop-blur">
                 <span className="rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-semibold text-white">
@@ -150,9 +151,9 @@ export default function Home() {
             <p className="text-base sm:text-lg md:text-xl text-gray-900/70 font-medium">
               Orchestrate your agents, channels, and data in one interface with Orkestrate intelligence.
             </p>
-          </div>
+          </ScrollAnimationWrapper>
 
-          <div className="mt-10 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-200">
+          <ScrollAnimationWrapper className="mt-10">
             <div className="relative w-full max-w-[56rem] mx-auto">
               <div className="relative w-full">
                 <div className="flex w-full flex-col items-center">
@@ -218,7 +219,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollAnimationWrapper>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-orange-50 z-10" />
       </section>
@@ -226,7 +227,7 @@ export default function Home() {
       <section className="relative px-4 py-20 md:py-24 lg:py-28">
         <div className="absolute inset-0 bg-white/70 backdrop-blur-xl -z-10 [mask-image:linear-gradient(to_bottom,transparent,black_8rem)]" />
         <div className="max-w-6xl mx-auto">
-          <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
+          <ScrollAnimationWrapper>
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
               Intelligence to
               <br />
@@ -237,9 +238,9 @@ export default function Home() {
               Orkestrate reads your orders, site behaviour and campaign data to surface
               where you are leaking revenue and where you can safely push harder.
             </p>
-          </div>
+          </ScrollAnimationWrapper>
 
-          <div className="mt-10 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-150">
+          <ScrollAnimationWrapper className="mt-10">
             <div className="-mx-4 px-4 overflow-hidden pb-8 relative">
               {/* Left fade */}
               <div className="pointer-events-none absolute left-0 top-0 bottom-8 w-24 z-10 bg-gradient-to-r from-white/90 to-transparent" />
@@ -293,9 +294,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollAnimationWrapper>
 
-          <div className="mt-12 text-center motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-300">
+          <ScrollAnimationWrapper className="mt-12 text-center">
             <button className="inline-flex items-center justify-center rounded-2xl bg-[#DD3B2F] text-white font-bold px-8 py-5 text-base sm:text-lg hover:opacity-90 transition-opacity">
               Connect and try our intelligence layer
               <span className="ml-2 uppercase">FOR FREE</span>
@@ -303,7 +304,7 @@ export default function Home() {
             <p className="mt-3 text-sm sm:text-base text-gray-600">
               All numbers update from your live data once you connect.
             </p>
-          </div>
+          </ScrollAnimationWrapper>
         </div>
       </section>
 
@@ -313,16 +314,16 @@ export default function Home() {
         id="orkestrate-advantage"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
+          <ScrollAnimationWrapper className="text-center">
             <p className="text-sm font-medium tracking-wide text-gray-700">Orkestrate Advantage</p>
             <h2 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-900 leading-tight max-w-4xl mx-auto">
               <span className="block">Continuous Intelligence for</span>
               <span className="block">Personalization at Scale</span>
             </h2>
-          </div>
+          </ScrollAnimationWrapper>
 
           <div className="mt-12 lg:mt-14 grid gap-10 lg:gap-14 lg:grid-cols-[0.85fr,2.8fr,0.85fr] items-center">
-            <div className="space-y-7 text-left motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-150">
+            <ScrollAnimationWrapper className="space-y-7 text-left">
               <div className="flex items-start gap-3">
                 <svg viewBox="0 0 16 16" aria-hidden="true" className="h-4 w-4 mt-1 text-gray-700" fill="currentColor">
                   <path d="M 11.89 3.404 L 11.182 4.111 L 11.889 4.818 L 12.596 4.111 L 11.889 3.404 Z M 9.767 5.525 L 10.474 4.818 L 11.181 5.525 L 10.474 6.232 Z M 7.293 8 L 6.233 9.06 L 6.939 9.768 L 8 8.707 L 9.06 9.767 L 9.768 9.061 L 8.708 8 L 9.768 6.94 L 9.061 6.232 L 8 7.292 L 6.94 6.232 L 6.232 6.939 L 7.292 8 Z M 4.11 4.818 L 3.403 4.111 L 4.11 3.404 L 4.817 4.111 Z M 4.817 5.525 L 5.524 6.232 L 6.231 5.525 L 5.524 4.818 Z M 9.767 10.475 L 10.474 11.182 L 11.181 10.475 L 10.474 9.768 Z M 11.888 12.596 L 11.181 11.889 L 11.888 11.182 L 12.595 11.889 Z M 4.817 10.475 L 5.524 9.768 L 6.231 10.475 L 5.524 11.182 Z M 4.11 11.182 L 3.403 11.889 L 4.11 12.596 L 4.817 11.889 Z" />
@@ -358,9 +359,9 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </div>
+            </ScrollAnimationWrapper>
 
-            <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-200">
+            <ScrollAnimationWrapper>
               <div className="mx-auto max-w-[1100px] w-full">
                 <Image
                   alt=""
@@ -372,9 +373,9 @@ export default function Home() {
                   style={{ height: 'auto' }}
                 />
               </div>
-            </div>
+            </ScrollAnimationWrapper>
 
-            <div className="space-y-7 text-left motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-250">
+            <ScrollAnimationWrapper className="space-y-7 text-left">
               <div className="flex items-start gap-3">
                 <svg viewBox="0 0 16 16" aria-hidden="true" className="h-4 w-4 mt-1 text-emerald-700" fill="currentColor">
                   <path d="M 11.449 4.798 L 12.247 4 L 12.954 4.707 L 12.156 5.505 Z M 9.053 7.193 L 10.65 5.597 L 11.357 6.304 L 9.761 7.9 L 9.054 7.193 Z M 3.753 9.168 L 5.416 10.831 L 8.256 7.991 L 8.962 8.699 L 5.769 11.892 L 5.416 12.246 L 5.062 11.892 L 3.045 9.875 Z" />
@@ -410,10 +411,10 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </div>
+            </ScrollAnimationWrapper>
           </div>
 
-          <div className="mt-16 lg:mt-18 grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6 text-center motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-300">
+          <ScrollAnimationWrapper className="mt-16 lg:mt-18 grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6 text-center">
             <div>
               <div className="flex items-end justify-center gap-1">
                 <p className="text-4xl sm:text-5xl font-semibold text-gray-900">128</p>
@@ -445,14 +446,14 @@ export default function Home() {
               </div>
               <p className="mt-3 text-sm sm:text-base text-gray-800">Completed Integration &amp; Testing</p>
             </div>
-          </div>
+          </ScrollAnimationWrapper>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-white z-10" />
       </section>
 
       <section className="relative px-4 py-24 md:py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
+          <ScrollAnimationWrapper className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
             <div className="max-w-2xl">
               <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900">
                 <span className="relative inline-block h-[1.15em] overflow-hidden align-baseline leading-none">
@@ -485,9 +486,9 @@ export default function Home() {
                 View all 40+ categories <ArrowRight className="h-4 w-4" />
               </a>
             </div>
-          </div>
+          </ScrollAnimationWrapper>
 
-          <div className="grid gap-8 lg:gap-10 lg:grid-cols-3 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-150">
+          <ScrollAnimationWrapper className="grid gap-8 lg:gap-10 lg:grid-cols-3">
             {/* Fashion Card */}
             <div className="group relative flex flex-col justify-between rounded-[2.5rem] border border-white/70 bg-white/60 backdrop-blur-xl p-10 shadow-[0_10px_35px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.7)] transition-all duration-500 hover:-translate-y-2 hover:border-orange-200/60 hover:shadow-[0_30px_70px_rgba(221,59,47,0.12)] overflow-hidden">
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/80 via-white/40 to-transparent opacity-70" />
@@ -577,16 +578,16 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollAnimationWrapper>
 
-          <div className="mt-20 text-center border-t border-gray-100 pt-12 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-250">
+          <ScrollAnimationWrapper className="mt-20 text-center border-t border-gray-100 pt-12">
             <p className="text-xl font-semibold text-gray-900">
               Choose from over 40 Unique Category Models that suit your brand
             </p>
             <p className="mt-3 text-gray-500">
               You would never hire a marketer from a random niche. Orkestrate is set up for your category.
             </p>
-          </div>
+          </ScrollAnimationWrapper>
         </div>
       </section>
 
@@ -598,7 +599,7 @@ export default function Home() {
         data-cl-theme="light"
         data-cl-background="background-01"
       >
-        <div className="csol-section-wrapper">
+        <ScrollAnimationWrapper className="csol-section-wrapper">
           <div className="cl-card wf-rotating-svg-container -white -container-01 -border">
             <div className="wf-rotating-svg-container-heading">
               <h3 className="wf-rotating-svg-heading cl-h3">Works with the tools you already use. 2,000+ integrations.</h3>
@@ -666,7 +667,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </ScrollAnimationWrapper>
       </section>
 
       {/* Footer */}

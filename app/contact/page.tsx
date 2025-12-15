@@ -3,6 +3,7 @@
 import { Mail, Phone } from 'lucide-react';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import Footer from '@/components/Footer';
+import ScrollAnimationWrapper from '@/components/ScrollAnimationWrapper';
 
 export default function ContactPage() {
   return (
@@ -12,18 +13,18 @@ export default function ContactPage() {
       <main className="pt-32 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
             {/* Header */}
-            <div className="text-center mb-16 space-y-6 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
+            <ScrollAnimationWrapper className="text-center mb-16 space-y-6">
                 <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1.5">
                     <span className="text-sm font-medium text-orange-600">Contact us</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 tracking-tight">
                     Get in touch with our team
                 </h1>
-            </div>
+            </ScrollAnimationWrapper>
 
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
                 {/* Left Column: Contact Info */}
-                <div className="space-y-12 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-150">
+                <ScrollAnimationWrapper className="space-y-12">
                     <div>
                         <h2 className="text-2xl font-semibold text-neutral-900 mb-4">
                             Feel free to reach out - we'd love to connect.
@@ -60,10 +61,10 @@ export default function ContactPage() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </ScrollAnimationWrapper>
 
                 {/* Right Column: Form */}
-                <div className="bg-gray-50 rounded-[2rem] p-8 md:p-10 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-300">
+                <ScrollAnimationWrapper className="bg-gray-50 rounded-[2rem] p-8 md:p-10">
                     <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                         <div className="grid sm:grid-cols-2 gap-6">
                             <div className="space-y-2">
@@ -123,7 +124,7 @@ export default function ContactPage() {
                             By submitting this form you agree to our friendly <a href="/privacy" className="underline hover:text-neutral-900 transition-colors">Privacy Policy</a>
                         </p>
                     </form>
-                </div>
+                </ScrollAnimationWrapper>
             </div>
         </div>
       </main>
