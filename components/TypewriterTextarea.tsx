@@ -8,6 +8,7 @@ type Props = {
   placeholder?: string;
   rows?: number;
   style?: React.CSSProperties;
+  prefix?: string;
 };
 
 export default function TypewriterTextarea({
@@ -16,9 +17,10 @@ export default function TypewriterTextarea({
   placeholder,
   rows = 3,
   style,
+  prefix = '',
 }: Props) {
   const [currentQueryIndex, setCurrentQueryIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState('');
+  const [displayedText, setDisplayedText] = useState(prefix);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(55);
 
@@ -39,7 +41,7 @@ export default function TypewriterTextarea({
         return;
       }
 
-      if (displayedText.length > 0) {
+      if (displayedText.length > prefix.length) {
         setDisplayedText(currentQuery.slice(0, displayedText.length - 1));
         setTypingSpeed(25);
         return;
@@ -51,7 +53,7 @@ export default function TypewriterTextarea({
 
     const timer = window.setTimeout(handleTyping, typingSpeed);
     return () => window.clearTimeout(timer);
-  }, [queries, displayedText, isDeleting, currentQueryIndex, typingSpeed]);
+  }, [queries, displayedText, isDeleting, currentQueryIndex, typingSpeed, prefix]);
 
   return (
     <textarea

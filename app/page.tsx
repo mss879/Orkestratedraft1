@@ -51,10 +51,10 @@ type InsightCard = {
 };
 
 const QUERIES = [
-  'Ask Orkestrate to create to a Black Friday campaign',
+  'Ask Orkestrate to help create a Black Friday campaign',
   'Ask Orkestrate to suggest journeys to reduce churn from BFCM',
-  'Ask Orkestrate to create a Christmas wishlist campaign',
-  'Ask Orkestrate to implement changes in real time',
+  'Ask Orkestrate to create a Christmas wish-list campaign',
+  'Ask Orkestrate to pause the Christmas campaign and run a 20 A/B test variants',
 ];
 
 export default function Home() {
@@ -167,6 +167,7 @@ export default function Home() {
                           className="flex w-full resize-none border-none bg-transparent px-2 py-2 text-[16px] leading-snug text-white/80 placeholder:text-white/50 focus-visible:outline-none md:text-base max-h-[max(35svh,5rem)]"
                           placeholder="Ask Orkestrate to create a prototype..."
                           style={{ height: '80px' }}
+                          prefix="Ask Orkestrate to "
                         />
                       </div>
 
