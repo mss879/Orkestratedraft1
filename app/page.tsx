@@ -63,7 +63,7 @@ export default function Home() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(55);
 
-  const insightCards = [
+  const insightCards: ReadonlyArray<InsightCard> = [
     {
       title: 'High value lapsing',
       metric: '183 customers at risk',
@@ -121,7 +121,7 @@ export default function Home() {
       Icon: ShoppingBag,
       dotClassName: 'bg-orange-500',
     },
-  ] satisfies ReadonlyArray<InsightCard>;
+  ];
 
   useEffect(() => {
     const currentQuery = QUERIES[currentQueryIndex];
@@ -254,9 +254,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-orange-50 z-10" />
       </section>
 
-      <section className="relative px-4 py-20 md:py-24 lg:py-28 border-t border-gray-100 bg-white/70 backdrop-blur-xl">
+      <section className="relative px-4 py-20 md:py-24 lg:py-28">
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-xl -z-10 [mask-image:linear-gradient(to_bottom,transparent,black_8rem)]" />
         <div className="max-w-6xl mx-auto">
           <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
@@ -479,9 +481,10 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-white z-10" />
       </section>
 
-      <section className="relative px-4 py-24 md:py-32 bg-white border-t border-gray-100 overflow-hidden">
+      <section className="relative px-4 py-24 md:py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
             <div className="max-w-2xl">
@@ -623,202 +626,75 @@ export default function Home() {
 
       <HowItWorks />
 
-      <section className="relative px-4 py-20 md:py-24 lg:py-28 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 mb-16">
-            <p className="text-sm font-semibold tracking-wide text-gray-500 uppercase">Integrations</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
-              Orkestrate your existing stack
-            </h2>
-            <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-gray-600">
-              Orkestrate is simple, enterprise-ready, and integrates seamlessly—no long setup required
-            </p>
-            <div className="mt-8 flex items-center justify-center gap-4">
-              <button className="inline-flex items-center justify-center rounded-lg bg-[#DD3B2F] px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#c42e23] transition-colors">
-                Request an Integration
-              </button>
-              <a href="#" className="text-sm font-semibold text-[#DD3B2F] hover:text-[#c42e23] flex items-center gap-1">
-                See all Integrations <ArrowRight className="h-4 w-4" />
+      <section
+        data-cy="csol-section"
+        className="csol-section wf-rotating-svg -white -padding-top-md -padding-bottom-xs"
+        data-cl-theme="light"
+        data-cl-background="background-01"
+      >
+        <div className="csol-section-wrapper">
+          <div className="cl-card wf-rotating-svg-container -white -container-01 -border">
+            <div className="wf-rotating-svg-container-heading">
+              <h3 className="wf-rotating-svg-heading cl-h3">Works with the tools you already use. 2,000+ integrations.</h3>
+              <a
+                className="cl-textLink -medium -white wf-rotating-svg-cta homepage-apps"
+                href="https://ecosystem.hubspot.com/marketplace/apps?hubs_content-cta=homepage-apps&hubs_content=www.hubspot.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                See all app integrations
               </a>
             </div>
-          </div>
 
-          <div className="grid lg:grid-cols-[1fr,auto,1fr] gap-8 items-stretch">
-            {/* Left Column: Data Sources */}
-            <div className="space-y-6">
-              <div className="text-center motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-100">
-                <h4 className="text-xs font-bold text-[#DD3B2F] uppercase tracking-wider mb-4">Data Sources</h4>
-              </div>
-              
-              {/* CDPs */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow motion-safe:animate-in motion-safe:slide-in-from-left-8 motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-200">
-                <h5 className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-3 text-center">Customer Data Platforms</h5>
-                <div className="flex flex-wrap justify-center gap-3">
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="Segment">
-                    <Layers className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="mParticle">
-                    <Box className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400">
-                    <span className="text-xs">•••</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Data Warehouse */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow motion-safe:animate-in motion-safe:slide-in-from-left-8 motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-300">
-                <h5 className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-3 text-center">Data Warehouse & Storage</h5>
-                <div className="flex flex-wrap justify-center gap-3">
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="Snowflake">
-                    <Database className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="BigQuery">
-                    <Server className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="S3">
-                    <Box className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400">
-                    <span className="text-xs">•••</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* CMS */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow motion-safe:animate-in motion-safe:slide-in-from-left-8 motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-500">
-                <h5 className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-3 text-center">Content Management Systems</h5>
-                <div className="flex flex-wrap justify-center gap-3">
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="Shopify">
-                    <ShoppingBag className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="Contentful">
-                    <Layout className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="WordPress">
-                    <Globe className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400">
-                    <span className="text-xs">•••</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Center Column: The Engine */}
-            <div className="flex flex-col items-center justify-center relative py-8">
-              {/* Connecting Lines (Desktop) */}
-              <div className="hidden lg:block absolute top-1/2 left-0 w-12 h-[2px] bg-gray-200 overflow-hidden -translate-x-full">
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-[#DD3B2F] to-transparent animate-stream-x"></div>
-              </div>
-              <div className="hidden lg:block absolute top-1/2 right-0 w-12 h-[2px] bg-gray-200 overflow-hidden translate-x-full">
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-[#DD3B2F] to-transparent animate-stream-x-reverse"></div>
-              </div>
-
-              <div className="w-full max-w-xs space-y-4">
-                {/* Ingestion */}
-                <div className="space-y-2 motion-safe:animate-in motion-safe:slide-in-from-top-4 motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-300">
-                  <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-3 shadow-sm hover:border-orange-200 transition-colors">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-[#DD3B2F]">
-                      <Zap className="h-4 w-4" />
-                    </div>
-                    <span className="text-sm font-medium text-gray-900">Stream Ingestion API</span>
-                  </div>
-                  <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-3 shadow-sm hover:border-orange-200 transition-colors">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-[#DD3B2F]">
-                      <Workflow className="h-4 w-4" />
-                    </div>
-                    <span className="text-sm font-medium text-gray-900">Batch Connectors</span>
+            <div className="wf-rotating-svg-container-icons" aria-hidden="true">
+              <div className="wf-logo-marquee">
+                <div className="wf-logo-row wf-logo-row--top">
+                  <div className="wf-logo-track">
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/slack-icon-2.svg" alt="Slack" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/zapier-icon-2.svg" alt="Zapier" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/google-ads-icon-2.svg" alt="Google Ads" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/shopify-icon-3.svg" alt="Shopify" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/mailchimp-icon-3.svg" alt="Mailchimp" loading="lazy" />
+                    <img className="wf-logo" src="https://cdn.simpleicons.org/meta/0866FF" alt="Meta" loading="lazy" />
+                    <img className="wf-logo" src="/integrations/firebase.svg" alt="Firebase" loading="lazy" />
+                    <img className="wf-logo" src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Airtable" loading="lazy" />
+                    <img className="wf-logo" src="/integrations/aws.svg" alt="AWS" loading="lazy" />
+                    <img className="wf-logo wf-logo--wide" src="/integrations/extra.svg" alt="Integration" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/slack-icon-2.svg" alt="Slack" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/zapier-icon-2.svg" alt="Zapier" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/google-ads-icon-2.svg" alt="Google Ads" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/shopify-icon-3.svg" alt="Shopify" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/mailchimp-icon-3.svg" alt="Mailchimp" loading="lazy" />
+                    <img className="wf-logo" src="https://cdn.simpleicons.org/meta/0866FF" alt="Meta" loading="lazy" />
+                    <img className="wf-logo" src="/integrations/firebase.svg" alt="Firebase" loading="lazy" />
+                    <img className="wf-logo" src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Airtable" loading="lazy" />
+                    <img className="wf-logo" src="/integrations/aws.svg" alt="AWS" loading="lazy" />
+                    <img className="wf-logo wf-logo--wide" src="/integrations/extra.svg" alt="Integration" loading="lazy" />
                   </div>
                 </div>
 
-                {/* Core */}
-                <div className="relative py-6 flex justify-center motion-safe:animate-in motion-safe:zoom-in-90 motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-500">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <div className="w-[2px] h-1/2 bg-gray-200 overflow-hidden relative">
-                      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-[#DD3B2F] to-transparent animate-stream-y"></div>
-                    </div>
-                    <div className="w-[2px] h-1/2 bg-gray-200 overflow-hidden relative">
-                      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-[#DD3B2F] to-transparent animate-stream-y-reverse"></div>
-                    </div>
-                  </div>
-                  <div className="relative z-10 bg-[#DD3B2F] text-white px-6 py-4 rounded-2xl shadow-[0_0_40px_rgba(221,59,47,0.4)] text-center hover:scale-105 transition-transform duration-300 border border-orange-400">
-                    <Cpu className="h-8 w-8 mx-auto mb-2" />
-                    <span className="text-sm font-bold uppercase tracking-wide">Agentic<br/>Infrastructure</span>
-                  </div>
-                </div>
-
-                {/* Output */}
-                <div className="space-y-2 motion-safe:animate-in motion-safe:slide-in-from-bottom-4 motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-700">
-                  <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-3 shadow-sm hover:border-orange-200 transition-colors">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-[#DD3B2F]">
-                      <Layers className="h-4 w-4" />
-                    </div>
-                    <span className="text-sm font-medium text-gray-900">Action Queues</span>
-                  </div>
-                  <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-3 shadow-sm hover:border-orange-200 transition-colors">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-[#DD3B2F]">
-                      <Database className="h-4 w-4" />
-                    </div>
-                    <span className="text-sm font-medium text-gray-900">Content API</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Agentic Actions */}
-            <div className="space-y-6">
-              <div className="text-center motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-100">
-                <h4 className="text-xs font-bold text-[#DD3B2F] uppercase tracking-wider mb-4">Agentic Actions, Content & Data</h4>
-              </div>
-
-              {/* Delivery */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow motion-safe:animate-in motion-safe:slide-in-from-right-8 motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-200">
-                <h5 className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-3 text-center">Delivery Infrastructure</h5>
-                <div className="flex flex-wrap justify-center gap-3">
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="SendGrid">
-                    <Mail className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="Twilio">
-                    <MessageSquare className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400">
-                    <span className="text-xs">•••</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Engagement */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow motion-safe:animate-in motion-safe:slide-in-from-right-8 motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-300">
-                <h5 className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-3 text-center">Engagement Tools</h5>
-                <div className="flex flex-wrap justify-center gap-3">
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="Klaviyo">
-                    <Mail className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="Braze">
-                    <Zap className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="Attentive">
-                    <MessageSquare className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400">
-                    <span className="text-xs">•••</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Observability */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow motion-safe:animate-in motion-safe:slide-in-from-right-8 motion-safe:fade-in motion-safe:duration-700 motion-safe:delay-500">
-                <h5 className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-3 text-center">Observability & Insights</h5>
-                <div className="flex flex-wrap justify-center gap-3">
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="Mixpanel">
-                    <BarChart3 className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-600 hover:scale-110 transition-transform duration-200" title="Amplitude">
-                    <Radio className="h-5 w-5" />
-                  </div>
-                  <div className="h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400">
-                    <span className="text-xs">•••</span>
+                <div className="wf-logo-row wf-logo-row--bottom">
+                  <div className="wf-logo-track wf-logo-track--reverse wf-logo-track--offset">
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/shopify-icon-3.svg" alt="Shopify" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/google-ads-icon-2.svg" alt="Google Ads" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/zapier-icon-2.svg" alt="Zapier" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/slack-icon-2.svg" alt="Slack" loading="lazy" />
+                    <img className="wf-logo" src="https://cdn.simpleicons.org/meta/0866FF" alt="Meta" loading="lazy" />
+                    <img className="wf-logo" src="/integrations/firebase.svg" alt="Firebase" loading="lazy" />
+                    <img className="wf-logo" src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Airtable" loading="lazy" />
+                    <img className="wf-logo" src="/integrations/aws.svg" alt="AWS" loading="lazy" />
+                    <img className="wf-logo wf-logo--wide" src="/integrations/extra.svg" alt="Integration" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/mailchimp-icon-3.svg" alt="Mailchimp" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/shopify-icon-3.svg" alt="Shopify" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/google-ads-icon-2.svg" alt="Google Ads" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/zapier-icon-2.svg" alt="Zapier" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/slack-icon-2.svg" alt="Slack" loading="lazy" />
+                    <img className="wf-logo" src="https://cdn.simpleicons.org/meta/0866FF" alt="Meta" loading="lazy" />
+                    <img className="wf-logo" src="/integrations/firebase.svg" alt="Firebase" loading="lazy" />
+                    <img className="wf-logo" src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Airtable" loading="lazy" />
+                    <img className="wf-logo" src="/integrations/aws.svg" alt="AWS" loading="lazy" />
+                    <img className="wf-logo wf-logo--wide" src="/integrations/extra.svg" alt="Integration" loading="lazy" />
+                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/mailchimp-icon-3.svg" alt="Mailchimp" loading="lazy" />
                   </div>
                 </div>
               </div>

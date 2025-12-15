@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: '%s | Orkestrate',
   },
   icons: {
-    icon: [{ url: '/Favicon%20-%20Dark.png', type: 'image/png' }],
+    icon: [{ url: '/Favicon%20-%20Light.png', type: 'image/png' }],
   },
   description:
     'Orchestrate your existing marketing stack with agentic infrastructure that turns data into campaigns, journeys, and experiments across your channels.',
