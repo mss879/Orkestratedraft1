@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Twitter, Linkedin, Github, Instagram, Mail } from 'lucide-react';
+import { Twitter, Linkedin, Github, Instagram, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,12 +8,12 @@ const Footer = () => {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/#about', label: 'About' },
-    { href: '/#contact', label: 'Contact' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   const socialLinks = [
     { href: 'https://twitter.com', label: 'Twitter', Icon: Twitter },
-    { href: 'https://linkedin.com', label: 'LinkedIn', Icon: Linkedin },
+    { href: 'https://www.linkedin.com/company/orkestrateco', label: 'LinkedIn', Icon: Linkedin },
     { href: 'https://github.com', label: 'GitHub', Icon: Github },
     { href: 'https://instagram.com', label: 'Instagram', Icon: Instagram },
   ];
@@ -24,111 +24,144 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-neutral-900 text-white">
-      <div className="mx-auto max-w-6xl px-4 py-12">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand Column */}
-          <div className="md:col-span-2">
-            <Link href="/" className="inline-block mb-4">
-              <Image 
-                src="/logo.png" 
-                alt="Orkestrate" 
-                width={140} 
-                height={40} 
-                className="brightness-0 invert"
-              />
+    <footer className="relative bg-[#0f0505] text-white overflow-hidden pt-20 pb-10">
+      {/* Background Gradients */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
+        <div className="absolute -top-[20%] -left-[10%] w-[800px] h-[800px] bg-orange-600/20 rounded-full blur-[120px] mix-blend-screen" />
+        <div className="absolute -bottom-[20%] -right-[10%] w-[800px] h-[800px] bg-orange-600/20 rounded-full blur-[120px] mix-blend-screen" />
+      </div>
+
+      {/* Large Watermark Text */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full pointer-events-none select-none overflow-hidden flex justify-center items-end z-0 opacity-[0.03]">
+        <span className="text-[15vw] md:text-[18vw] font-bold leading-none tracking-tighter whitespace-nowrap text-white">
+          Orkestrate
+        </span>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-6xl px-4">
+        {/* CTA Section */}
+        <div className="flex flex-col items-start text-left mb-20">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 mb-6">
+            <span className="text-xs font-bold text-neutral-900 uppercase tracking-wide">Join the AI Revolution</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight leading-tight">
+            Ready to start your<br />
+            AI journey with us?
+          </h2>
+          <div className="flex flex-wrap gap-4">
+            <Link 
+              href="/contact" 
+              className="px-8 py-3.5 rounded-lg bg-[#2a1008] border border-white/10 text-white font-medium hover:bg-[#3a160b] transition-colors min-w-[140px] text-center shadow-lg shadow-orange-900/20"
+            >
+              Get Started
             </Link>
-            <p className="text-gray-400 text-sm max-w-md mb-6">
-              Agentic infrastructure that connects your data, automates your marketing, 
-              and drives revenue growth with intelligent insights.
-            </p>
-            {/* Social Links */}
-            <div className="flex items-center gap-4">
+            <Link 
+              href="mailto:hello@orkestrate.com" 
+              className="px-8 py-3.5 rounded-lg bg-white text-neutral-900 font-medium hover:bg-gray-100 transition-colors min-w-[140px] text-center"
+            >
+              Book a Demo
+            </Link>
+          </div>
+        </div>
+
+        <div className="h-px w-full bg-white/10 mb-16" />
+
+        {/* Main Content */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
+          {/* Left: Brand & Socials */}
+          <div className="md:col-span-5 space-y-8">
+            <div>
+              <Link href="/" className="inline-block mb-4">
+                <Image 
+                  src="/logo.png" 
+                  alt="Orkestrate" 
+                  width={160} 
+                  height={45} 
+                  className="brightness-0 invert"
+                />
+              </Link>
+              <p className="text-gray-400 text-sm">
+                Manage AI effortlessly
+              </p>
+            </div>
+            
+            <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <Link
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-10 w-10 rounded-lg bg-white/10 flex items-center justify-center text-gray-400 hover:bg-[#DD3B2F] hover:text-white transition-all duration-200"
+                  className="p-2 rounded-full border border-white/20 text-gray-400 hover:border-white hover:text-white transition-all duration-300"
                   aria-label={social.label}
                 >
-                  <social.Icon className="h-5 w-5" />
+                  <social.Icon className="w-4 h-4" />
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-gray-300">
-              Navigation
-            </h4>
-            <ul className="space-y-3">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
+          {/* Right: Links */}
+          <div className="md:col-span-7 flex flex-col sm:flex-row justify-end gap-16 md:gap-24">
+            {/* Navigation */}
+            <div>
+              <h4 className="font-medium text-white mb-6">Use Link</h4>
+              <ul className="space-y-3">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link 
+                      href={link.href} 
+                      className="text-gray-400 hover:text-white transition-colors text-sm"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+                {/* Additional links to match design density if needed */}
+                <li><Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-sm">Pricing</Link></li>
+                <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors text-sm">Blog</Link></li>
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h4 className="font-medium text-white mb-6">Company</h4>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href="tel:+14158150649"
+                    className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
                   >
-                    {link.label}
+                    +1 415 815 0649
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    href="mailto:hello@orkestrate.com"
+                    className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
+                  >
+                    hello@orkestrate.com
                   </Link>
                 </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact & Legal */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-gray-300">
-              Get in Touch
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  href="mailto:hello@orkestrate.com"
-                  className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
-                >
-                  <Mail className="h-4 w-4" />
-                  hello@orkestrate.com
-                </Link>
-              </li>
-            </ul>
-
-            <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 mt-6 text-gray-300">
-              Legal
-            </h4>
-            <ul className="space-y-3">
-              {legalLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-white/10 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
-              © {currentYear} Orkestrate. All rights reserved.
-            </p>
-            <div className="flex items-center gap-4 text-gray-500 text-sm">
-              <span className="flex items-center gap-1">
-                Powered by <span className="text-white font-medium">Next.js</span>
-              </span>
-              <span className="text-gray-600">•</span>
-              <span className="flex items-center gap-1">
-                Built by <span className="text-[#DD3B2F] font-medium">ARC AI</span>
-              </span>
+        <div className="h-px w-full bg-white/10 mb-8" />
+
+        {/* Bottom Bar */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+            <p>© {currentYear} Orkestrate. All rights reserved.</p>
+            <div className="flex items-center gap-2">
+              <span>Powered by Next.js</span>
+              <span>•</span>
+              <span>Built by ARC AI</span>
             </div>
+          </div>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
           </div>
         </div>
       </div>

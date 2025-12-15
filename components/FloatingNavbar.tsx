@@ -20,7 +20,7 @@ const FloatingNavbar = () => {
               <Link href="/#about" className="hover:text-foreground transition-colors">
                 About
               </Link>
-              <Link href="/#contact" className="hover:text-foreground transition-colors">
+              <Link href="/contact" className="hover:text-foreground transition-colors">
                 Contact
               </Link>
             </div>
