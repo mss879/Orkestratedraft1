@@ -81,7 +81,7 @@ const Footer = () => {
                 />
               </Link>
               <p className="text-gray-400 text-sm">
-                Manage AI effortlessly
+                Marketing made smarter and simple
               </p>
             </div>
             
@@ -118,8 +118,7 @@ const Footer = () => {
                   </li>
                 ))}
                 {/* Additional links to match design density if needed */}
-                <li><Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-sm">Pricing</Link></li>
-                <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors text-sm">Blog</Link></li>
+                <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">Book Demo</Link></li>
               </ul>
             </div>
 
@@ -157,7 +156,7 @@ const Footer = () => {
             <div className="flex items-center gap-2">
               <span>Powered by Next.js</span>
               <span>•</span>
-              <span>Built by ARC AI</span>
+              <a href="https://www.arcai.agency/" target="_blank" rel="noopener noreferrer" className="hover:text-white underline transition-colors">Built by ARC AI</a>
             </div>
           </div>
           <div className="flex gap-6">
