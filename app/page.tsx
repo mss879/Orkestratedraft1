@@ -1,6 +1,4 @@
-'use client';
-
-import { useState, useEffect, type ComponentType } from 'react';
+import type { ComponentType } from 'react';
 import Image from 'next/image';
 import {
   ArrowRight,
@@ -37,6 +35,7 @@ import {
 import FloatingNavbar from '@/components/FloatingNavbar';
 import HowItWorks from '@/components/HowItWorks';
 import Footer from '@/components/Footer';
+import TypewriterTextarea from '@/components/TypewriterTextarea';
 
 type InsightCard = {
   title: string;
@@ -58,11 +57,6 @@ const QUERIES = [
 ];
 
 export default function Home() {
-  const [currentQueryIndex, setCurrentQueryIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(55);
-
   const insightCards: ReadonlyArray<InsightCard> = [
     {
       title: 'High value lapsing',
@@ -123,32 +117,6 @@ export default function Home() {
     },
   ];
 
-  useEffect(() => {
-    const currentQuery = QUERIES[currentQueryIndex];
-
-    const handleTyping = () => {
-      if (!isDeleting) {
-        if (displayedText.length < currentQuery.length) {
-          setDisplayedText(currentQuery.slice(0, displayedText.length + 1));
-          setTypingSpeed(55);
-        } else {
-          setTimeout(() => setIsDeleting(true), 2000);
-        }
-      } else {
-        if (displayedText.length > 0) {
-          setDisplayedText(currentQuery.slice(0, displayedText.length - 1));
-          setTypingSpeed(25);
-        } else {
-          setIsDeleting(false);
-          setCurrentQueryIndex((prev) => (prev + 1) % QUERIES.length);
-        }
-      }
-    };
-
-    const timer = setTimeout(handleTyping, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [displayedText, isDeleting, currentQueryIndex, typingSpeed]);
-
   return (
     <div className="bg-orange-50">
       <FloatingNavbar />
@@ -190,15 +158,13 @@ export default function Home() {
                 <div className="flex w-full flex-col items-center">
                   <div className="relative size-full w-full">
                     <form
-                      onSubmit={(e) => e.preventDefault()}
                       className="group flex flex-col gap-2 p-3 w-full rounded-[28px] border border-white/10 bg-neutral-900 text-base shadow-xl transition-all duration-150 ease-in-out focus-within:border-white/20 hover:border-white/15 focus-within:hover:border-white/20"
                     >
                       <div className="relative flex flex-1 items-center px-1">
-                        <textarea
+                        <TypewriterTextarea
+                          queries={QUERIES}
                           className="flex w-full resize-none border-none bg-transparent px-2 py-2 text-[16px] leading-snug text-white/80 placeholder:text-white/50 focus-visible:outline-none md:text-base max-h-[max(35svh,5rem)]"
-                          value={displayedText}
                           placeholder="Ask Orkestrate to create a prototype..."
-                          readOnly
                           style={{ height: '80px' }}
                         />
                       </div>

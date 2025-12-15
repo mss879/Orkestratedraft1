@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
   title: {
-    default: 'Orkestrate',
+    default: 'Orkestrate — Intelligence layer for marketing orchestration',
     template: '%s | Orkestrate',
   },
   icons: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'Orkestrate',
-    title: 'Orkestrate',
+    title: 'Orkestrate — Intelligence layer for marketing orchestration',
     description:
       'Orchestrate your existing marketing stack with agentic infrastructure that turns data into campaigns, journeys, and experiments across your channels.',
     images: [
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Orkestrate',
+    title: 'Orkestrate — Intelligence layer for marketing orchestration',
     description:
       'Orchestrate your existing marketing stack with agentic infrastructure that turns data into campaigns, journeys, and experiments across your channels.',
     images: ['/logo.png'],

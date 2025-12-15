@@ -156,7 +156,22 @@ const Footer = () => {
             <div className="flex items-center gap-2">
               <span>Powered by Next.js</span>
               <span>•</span>
-              <a href="https://www.arcai.agency/" target="_blank" rel="noopener noreferrer" className="hover:text-white underline transition-colors">Built by ARC AI</a>
+              <span>Built by</span>
+              <a
+                href="https://www.arcai.agency/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+                aria-label="ARC AI"
+              >
+                <Image
+                  src="/arc%20logo.png"
+                  alt="ARC AI"
+                  width={96}
+                  height={24}
+                  className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                />
+              </a>
             </div>
           </div>
           <div className="flex gap-6">
