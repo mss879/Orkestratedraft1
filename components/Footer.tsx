@@ -153,26 +153,6 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
             <p>© {currentYear} Orkestrate. All rights reserved.</p>
-            <div className="flex items-center gap-2">
-              <span>Powered by Next.js</span>
-              <span>•</span>
-              <span>Built by</span>
-              <a
-                href="https://www.arcai.agency/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-                aria-label="ARC AI"
-              >
-                <Image
-                  src="/arc%20logo.png"
-                  alt="ARC AI"
-                  width={96}
-                  height={24}
-                  className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity"
-                />
-              </a>
-            </div>
           </div>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
