@@ -120,7 +120,7 @@ const config: Config = {
         'stream-y': 'stream-y 2s linear infinite',
         'stream-y-reverse': 'stream-y-reverse 2s linear infinite',
         'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
-        marquee: 'marquee 80s linear infinite',
+        marquee: 'marquee 30s linear infinite',
       },
     },
   },

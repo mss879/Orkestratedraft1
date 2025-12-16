@@ -78,7 +78,7 @@ export default function HowItWorks() {
         {steps.map((step, index) => (
           <ScrollAnimationWrapper 
             key={index}
-            className={`relative bg-white/35 backdrop-blur-xl border border-white/50 rounded-3xl p-6 flex flex-col gap-10 sm:p-12 sm:gap-12 md:items-center shadow-[0_8px_32px_rgba(0,0,0,0.10),inset_0_1px_0_rgba(255,255,255,0.55)] hover:bg-white/45 hover:border-orange-500/25 hover:shadow-[0_18px_60px_rgba(232,98,51,0.14),inset_0_1px_0_rgba(255,255,255,0.70)] transition-all duration-500 overflow-hidden ${
+            className={`relative bg-white/35 backdrop-blur-xl border border-white/50 rounded-3xl p-6 flex flex-col gap-10 sm:p-12 sm:gap-12 md:items-center shadow-[0_8px_32px_rgba(0,0,0,0.10),inset_0_1px_0_rgba(255,255,255,0.55)] hover:bg-white/45 hover:border-orange-500/25 hover:shadow-[0_18px_60px_rgba(232,98,51,0.14),inset_0_1px_0_rgba(255,255,255,0.70)] transition-[background-color,border-color,box-shadow] duration-500 overflow-hidden will-change-transform ${
               index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'
             }`}
           >
