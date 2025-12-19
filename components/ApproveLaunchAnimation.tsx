@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence, useInView, useAnimation } from 'framer-motion';
 import { CheckCircle2, MousePointer2, Rocket, CalendarClock, SlidersHorizontal } from 'lucide-react';
 
 const ApproveLaunchAnimation = () => {
@@ -33,6 +33,36 @@ const ApproveLaunchAnimation = () => {
 const ApprovalSequence = ({ isActive }: { isActive: boolean }) => {
   const [step, setStep] = useState(0); // 0: Review, 1: Tweak, 2: Approved, 3: Launching
   const [budget, setBudget] = useState(50);
+  const cursorControls = useAnimation();
+
+  useEffect(() => {
+    const sequence = async () => {
+      if (!isActive) return;
+      
+      // Initial state
+      cursorControls.set({ x: 300, y: 300, opacity: 0 });
+      
+      // Start
+      await cursorControls.start({ x: 300, y: 300, opacity: 1, transition: { duration: 0 } });
+      
+      // Move to slider
+      await cursorControls.start({ x: 200, y: 160, opacity: 1, transition: { duration: 1, delay: 0.5 } });
+      
+      // Drag slider
+      await cursorControls.start({ x: 250, y: 160, opacity: 1, transition: { duration: 1.5 } });
+      
+      // Move to button
+      await cursorControls.start({ x: 180, y: 280, opacity: 1, transition: { duration: 0.8 } });
+      
+      // Click down
+      await cursorControls.start({ scale: 0.8, transition: { duration: 0.1 } });
+      
+      // Click up & fade
+      await cursorControls.start({ scale: 1, opacity: 0, transition: { duration: 0.2, delay: 0.2 } });
+    };
+
+    sequence();
+  }, [isActive, cursorControls]);
 
   useEffect(() => {
     if (!isActive) {
@@ -135,14 +165,7 @@ const ApprovalSequence = ({ isActive }: { isActive: boolean }) => {
             <motion.div
               className="absolute pointer-events-none z-50"
               initial={{ x: 300, y: 300, opacity: 0 }}
-              animate={[
-                { x: 300, y: 300, opacity: 1 }, // Start
-                { x: 200, y: 160, opacity: 1, transition: { duration: 1, delay: 0.5 } }, // Move to slider
-                { x: 250, y: 160, opacity: 1, transition: { duration: 1.5 } }, // Drag slider
-                { x: 180, y: 280, opacity: 1, transition: { duration: 0.8 } }, // Move to button
-                { scale: 0.8, transition: { duration: 0.1 } }, // Click down
-                { scale: 1, opacity: 0, transition: { duration: 0.2, delay: 0.2 } } // Click up & fade
-              ]}
+              animate={cursorControls}
             >
               <MousePointer2 className="w-6 h-6 text-black fill-white drop-shadow-md" />
             </motion.div>
