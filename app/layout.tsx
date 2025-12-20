@@ -1,5 +1,5 @@
 import './globals.css';
-import type { Metadata, Viewport } from 'next';
+import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 
 const poppins = Poppins({ 
@@ -10,15 +10,14 @@ const poppins = Poppins({
   preload: true,
 });
 
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
-  themeColor: '#ffffff',
-};
-
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://orkestrate.com'),
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  themeColor: '#ffffff',
   title: {
     default: 'Orkestrate — Intelligence layer for marketing orchestration',
     template: '%s | Orkestrate',
