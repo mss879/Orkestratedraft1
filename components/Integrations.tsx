@@ -4,20 +4,20 @@ import { Check, Clock, Zap, BarChart3 } from 'lucide-react';
 
 const Integrations = () => {
   return (
-    <section className="py-24 bg-white text-gray-900 overflow-hidden">
+    <section className="py-24 md:py-32 bg-[#EBE9E6] text-gray-900 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column: Circular Graphic */}
           <div className="relative flex items-center justify-center min-h-[500px]" aria-hidden="true">
             {/* Background Gradients */}
-            <div className="absolute inset-0 bg-orange-500/5 blur-[100px] rounded-full" />
+            <div className="absolute inset-0 bg-orkestrate-pulse/5 blur-[100px] rounded-full" />
             
             {/* Orbit Rings */}
-            <div className="absolute w-[300px] h-[300px] border border-gray-200 rounded-full" />
-            <div className="absolute w-[450px] h-[450px] border border-gray-200 rounded-full" />
+            <div className="absolute w-[300px] h-[300px] border border-dashed border-gray-400 rounded-full" />
+            <div className="absolute w-[450px] h-[450px] border border-dashed border-gray-400 rounded-full" />
             
             {/* Center Logo */}
-            <div className="relative z-10 w-24 h-24 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-2xl shadow-orange-500/20">
+            <div className="relative z-10 w-24 h-24 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-2xl shadow-orkestrate-pulse/20">
               <Image src="/Favicon - Dark.png" alt="" width={48} height={48} className="object-contain" loading="lazy" />
             </div>
 
@@ -25,29 +25,29 @@ const Integrations = () => {
             <div className="absolute w-[300px] h-[300px] animate-spin-slow" style={{ animationDuration: '60s' }}>
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-reverse-slow" style={{ animationDuration: '60s' }}>
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-2">
-                    <Image src="/integrations/slack.svg" alt="" width={24} height={24} loading="lazy" />
+                  <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
+                    <Image src="/integrations/shopify.webp" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
                 <div className="animate-spin-reverse-slow" style={{ animationDuration: '60s' }}>
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-2">
-                    <Image src="/integrations/zapier.svg" alt="" width={24} height={24} loading="lazy" />
+                  <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
+                    <Image src="/integrations/klaviyo.webp" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-reverse-slow" style={{ animationDuration: '60s' }}>
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-2">
-                    <Image src="/integrations/google-ads.svg" alt="" width={24} height={24} loading="lazy" />
+                  <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
+                    <Image src="/integrations/braze.webp" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-reverse-slow" style={{ animationDuration: '60s' }}>
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-2">
-                    <Image src="/shopify logo.webp" alt="" width={24} height={24} loading="lazy" />
+                  <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
+                    <Image src="/integrations/attentive.webp" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -66,7 +66,7 @@ const Integrations = () => {
               <div className="absolute top-[14.6%] right-[14.6%] translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-slow" style={{ animationDuration: '80s' }}>
                   <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
-                    <Image src="/integrations/meta.svg" alt="" width={32} height={32} loading="lazy" />
+                    <Image src="/integrations/google-ads.svg" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@ const Integrations = () => {
               <div className="absolute bottom-[14.6%] left-[14.6%] -translate-x-1/2 translate-y-1/2">
                 <div className="animate-spin-slow" style={{ animationDuration: '80s' }}>
                   <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
-                    <Image src="/integrations/extra.svg" alt="" width={32} height={32} loading="lazy" />
+                    <Image src="/integrations/meta.svg" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -108,7 +108,7 @@ const Integrations = () => {
               <div className="absolute top-[14.6%] left-[14.6%] -translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-slow" style={{ animationDuration: '80s' }}>
                   <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
-                    <Image src="/integrations/zapier.svg" alt="" width={32} height={32} loading="lazy" />
+                    <Image src="/integrations/meta.svg" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>

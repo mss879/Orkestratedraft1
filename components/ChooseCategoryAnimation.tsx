@@ -7,12 +7,12 @@ import { Shirt, Sparkles, Home, Utensils, Check, BarChart3, Zap } from 'lucide-r
 const ChooseCategoryAnimation = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.3 });
-  const [key, setKey] = useState(0);
+  const [cycle, setCycle] = useState(0);
 
   useEffect(() => {
     if (isInView) {
       const interval = setInterval(() => {
-        setKey((prev) => prev + 1);
+        setCycle((prev) => prev + 1);
       }, 8000); // 8s loop
       return () => clearInterval(interval);
     }
@@ -24,7 +24,7 @@ const ChooseCategoryAnimation = () => {
       <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#f97316 1px, transparent 1px)', backgroundSize: '30px 30px', opacity: 0.05 }}></div>
 
       <div className="relative z-10 w-full max-w-sm">
-        <CategorySelectionSequence key={key} isActive={isInView} />
+        <CategorySelectionSequence isActive={isInView} cycle={cycle} />
       </div>
     </div>
   );
@@ -37,7 +37,7 @@ const categories = [
   { id: 'food', label: 'Food', icon: Utensils, color: 'text-orange-500', bg: 'bg-orange-50', border: 'border-orange-100' },
 ];
 
-const CategorySelectionSequence = ({ isActive }: { isActive: boolean }) => {
+const CategorySelectionSequence = ({ isActive, cycle }: { isActive: boolean; cycle: number }) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [modelLoaded, setModelLoaded] = useState(false);
 
@@ -66,7 +66,7 @@ const CategorySelectionSequence = ({ isActive }: { isActive: boolean }) => {
       clearTimeout(selectTimer);
       clearTimeout(loadTimer);
     };
-  }, [isActive]);
+  }, [isActive, cycle]);
 
   return (
     <div className="flex flex-col items-center gap-6">

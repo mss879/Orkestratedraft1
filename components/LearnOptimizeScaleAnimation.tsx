@@ -1,20 +1,38 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { TrendingUp } from 'lucide-react';
+
+function mulberry32(seed: number) {
+  return function () {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
 const LearnOptimizeScaleAnimation = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.3 });
-  const [key, setKey] = useState(0);
+  const [cycle, setCycle] = useState(0);
 
   useEffect(() => {
     if (isInView) {
-      // Reset key when entering view to restart animations
-      setKey(prev => prev + 1);
+      // Restart positions when entering view (without remounting the whole tree)
+      setCycle((prev) => prev + 1);
     }
   }, [isInView]);
+
+  const orbitOffsets = useMemo(() => {
+    const rand = mulberry32(1337 + cycle * 97);
+    return Array.from({ length: 6 }, (_, i) => {
+      const x = 80 + rand() * 40;
+      const y = 60 + rand() * 20;
+      return { x, y };
+    });
+  }, [cycle]);
 
   return (
     <div ref={containerRef} className="relative w-full h-full min-h-[300px] bg-gradient-to-br from-orange-50/30 to-white flex flex-col items-center justify-center overflow-hidden p-4">
@@ -27,7 +45,6 @@ const LearnOptimizeScaleAnimation = () => {
         {/* Header Stats */}
         <div className="flex justify-center items-center mb-4">
           <motion.div 
-            key={`header-${key}`}
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ delay: 0.7 }}
@@ -43,7 +60,6 @@ const LearnOptimizeScaleAnimation = () => {
           
           {/* Central "Core" - The Strategy */}
           <motion.div
-            key={`core-${key}`}
             className="absolute z-20 bg-white rounded-2xl shadow-xl border border-orange-100 p-4 flex flex-col items-center gap-2 w-32"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
@@ -58,14 +74,14 @@ const LearnOptimizeScaleAnimation = () => {
           {/* Orbiting "Campaigns" - Scaling Effect */}
           {['Learn', 'Optimize', 'Scale', 'Learn', 'Optimize', 'Scale'].map((label, i) => (
             <motion.div
-              key={`orbit-${i}-${key}`}
+              key={`orbit-${i}`}
               className="absolute z-10"
               initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
               animate={isInView ? { 
                 opacity: [0, 1, 1, 0],
                 scale: [0.5, 1, 1, 0.5],
-                x: [0, (i % 2 === 0 ? 1 : -1) * (80 + Math.random() * 40)],
-                y: [0, (i < 2 ? -1 : i > 3 ? 1 : 0) * (60 + Math.random() * 20)]
+                x: [0, (i % 2 === 0 ? 1 : -1) * orbitOffsets[i].x],
+                y: [0, (i < 2 ? -1 : i > 3 ? 1 : 0) * orbitOffsets[i].y]
               } : { opacity: 0 }}
               transition={{
                 duration: 4,
@@ -89,7 +105,7 @@ const LearnOptimizeScaleAnimation = () => {
               
               return (
                 <motion.div
-                  key={`bar-${i}-${key}`}
+                  key={`bar-${i}`}
                   className="w-full bg-orange-500 rounded-t-sm"
                   initial={{ height: "0%" }}
                   animate={isInView ? { height: ["0%", `${height}%`, `${height}%`] } : { height: "0%" }}
@@ -107,7 +123,6 @@ const LearnOptimizeScaleAnimation = () => {
           {/* Main Trend Line */}
           <svg className="absolute inset-0 w-full h-full overflow-visible">
             <motion.path
-              key={`line-${key}`}
               d="M0 70 C 50 70, 100 55, 150 40 C 200 25, 250 15, 400 5"
               fill="none"
               stroke="#f97316"
@@ -124,7 +139,6 @@ const LearnOptimizeScaleAnimation = () => {
             />
             {/* Area under curve */}
             <motion.path
-              key={`area-${key}`}
               d="M0 70 C 50 70, 100 55, 150 40 C 200 25, 250 15, 400 5 L 400 100 L 0 100 Z"
               fill="url(#gradient)"
               opacity="0.2"

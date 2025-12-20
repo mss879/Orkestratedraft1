@@ -24,11 +24,11 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-[#0f0505] text-white overflow-hidden pt-20 pb-10">
+    <footer className="relative bg-[#1a0505] text-white overflow-hidden pt-24 md:pt-32 pb-10">
       {/* Background Gradients */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
-        <div className="absolute -top-[20%] -left-[10%] w-[800px] h-[800px] bg-orange-600/20 rounded-full blur-[120px] mix-blend-screen" />
-        <div className="absolute -bottom-[20%] -right-[10%] w-[800px] h-[800px] bg-orange-600/20 rounded-full blur-[120px] mix-blend-screen" />
+        <div className="absolute -top-[20%] -left-[10%] w-[800px] h-[800px] bg-orkestrate-pulse/20 rounded-full blur-[120px] mix-blend-screen" />
+        <div className="absolute -bottom-[20%] -right-[10%] w-[800px] h-[800px] bg-orkestrate-pulse/20 rounded-full blur-[120px] mix-blend-screen" />
       </div>
 
       {/* Large Watermark Text */}

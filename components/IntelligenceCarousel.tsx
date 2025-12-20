@@ -106,8 +106,7 @@ export default function IntelligenceCarousel() {
   }, [isDragging, startX, scrollLeft]);
 
   return (
-    <section className="relative px-4 py-20 md:py-24 lg:py-28" aria-labelledby="intelligence-heading">
-        <div className="absolute inset-0 bg-white/70 backdrop-blur-xl -z-10 [mask-image:linear-gradient(to_bottom,transparent,black_8rem)]" aria-hidden="true" />
+    <section className="relative px-4 py-24 md:py-32 bg-orange-50" aria-labelledby="intelligence-heading">
         <div className="max-w-6xl mx-auto">
           <ScrollAnimationWrapper>
             <h2 id="intelligence-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
@@ -124,9 +123,9 @@ export default function IntelligenceCarousel() {
 
           <ScrollAnimationWrapper className="mt-10 relative">
             {/* Left fade */}
-            <div className="pointer-events-none absolute -left-4 top-0 bottom-8 w-24 z-20 bg-gradient-to-r from-white/90 to-transparent" />
+            <div className="pointer-events-none absolute -left-4 top-0 bottom-8 w-24 z-20 bg-gradient-to-r from-orange-50 to-transparent" />
             {/* Right fade */}
-            <div className="pointer-events-none absolute -right-4 top-0 bottom-8 w-24 z-20 bg-gradient-to-l from-white/90 to-transparent" />
+            <div className="pointer-events-none absolute -right-4 top-0 bottom-8 w-24 z-20 bg-gradient-to-l from-orange-50 to-transparent" />
             <div 
                 ref={scrollRef}
                 className={`-mx-4 px-4 overflow-x-auto no-scrollbar pb-8 relative cursor-grab ${isDragging ? 'cursor-grabbing' : ''}`}

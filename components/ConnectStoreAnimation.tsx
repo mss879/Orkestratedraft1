@@ -7,12 +7,12 @@ import { Check, ArrowDownToLine } from 'lucide-react';
 const ConnectStoreAnimation = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.3 });
-  const [key, setKey] = useState(0);
+  const [cycle, setCycle] = useState(0);
 
   useEffect(() => {
     if (isInView) {
       const interval = setInterval(() => {
-        setKey((prev) => prev + 1);
+        setCycle((prev) => prev + 1);
       }, 8000); // 8s loop
       return () => clearInterval(interval);
     }
@@ -24,7 +24,7 @@ const ConnectStoreAnimation = () => {
       <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#f97316 1px, transparent 1px)', backgroundSize: '30px 30px', opacity: 0.05 }}></div>
 
       <div className="relative z-10 w-full max-w-sm">
-        <ConnectionSequence key={key} isActive={isInView} />
+        <ConnectionSequence isActive={isInView} cycle={cycle} />
       </div>
     </div>
   );
@@ -37,7 +37,7 @@ const integrations = [
   { id: 'braze', label: 'Braze', imageSrc: '/Braze logo.webp', bg: 'bg-white', delay: 1.1, position: 'bottom-0 right-4' },
 ];
 
-const ConnectionSequence = ({ isActive }: { isActive: boolean }) => {
+const ConnectionSequence = ({ isActive, cycle }: { isActive: boolean; cycle: number }) => {
   const [step, setStep] = useState(0); // 0: Init, 1: Connect, 2: Ingest, 3: Complete
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const ConnectionSequence = ({ isActive }: { isActive: boolean }) => {
       clearTimeout(t2);
       clearTimeout(t3);
     };
-  }, [isActive]);
+  }, [isActive, cycle]);
 
   return (
     <div className="h-[380px] w-full relative flex items-center justify-center">

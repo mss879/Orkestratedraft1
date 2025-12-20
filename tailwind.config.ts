@@ -60,6 +60,16 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        orkestrate: {
+          scarlet: '#E0422D',
+          crimson: '#FAB6AA',
+          pulse: '#EB5825',
+          core: '#E86233',
+          deep: '#C63804',
+          ember: '#BA301D',
+          signal: '#D3311C',
+          carbon: '#131313',
+        },
       },
       keyframes: {
         'accordion-down': {

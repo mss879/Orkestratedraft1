@@ -7,12 +7,12 @@ import { User, Sparkles, Users, GitFork, FlaskConical, Send } from 'lucide-react
 const ChatOrkestratorAnimation = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.3 });
-  const [key, setKey] = useState(0);
+  const [cycle, setCycle] = useState(0);
 
   useEffect(() => {
     if (isInView) {
       const interval = setInterval(() => {
-        setKey((prev) => prev + 1);
+        setCycle((prev) => prev + 1);
       }, 12000); // 12s loop cycle
       return () => clearInterval(interval);
     }
@@ -40,14 +40,14 @@ const ChatOrkestratorAnimation = () => {
           </div>
         </div>
 
-        <ChatSequence key={key} isActive={isInView} />
+        <ChatSequence isActive={isInView} cycle={cycle} />
 
       </div>
     </div>
   );
 };
 
-const ChatSequence = ({ isActive }: { isActive: boolean }) => {
+const ChatSequence = ({ isActive, cycle }: { isActive: boolean; cycle: number }) => {
   const [inputText, setInputText] = useState("");
   const [status, setStatus] = useState<'typing' | 'sending' | 'sent'>('typing');
   const fullText = "Recover my lapsing VIP customers.";
@@ -61,29 +61,40 @@ const ChatSequence = ({ isActive }: { isActive: boolean }) => {
     }
 
     let i = 0;
+    let typingInterval: number | undefined;
+    let startDelay: number | undefined;
+    let sendDelay: number | undefined;
+    let sentDelay: number | undefined;
+
     // Start typing after a short delay
-    const startDelay = setTimeout(() => {
-      const typingInterval = setInterval(() => {
+    startDelay = window.setTimeout(() => {
+      typingInterval = window.setInterval(() => {
         if (i <= fullText.length) {
           setInputText(fullText.slice(0, i));
           i++;
-        } else {
-          clearInterval(typingInterval);
-          // Typing done, wait a bit then "send"
-          setTimeout(() => {
-            setStatus('sending');
-            setTimeout(() => {
-              setStatus('sent');
-              setInputText("");
-            }, 300); // Button press animation duration
-          }, 600); // Pause before hitting send
+          return;
         }
+
+        if (typingInterval) window.clearInterval(typingInterval);
+
+        // Typing done, wait a bit then "send"
+        sendDelay = window.setTimeout(() => {
+          setStatus('sending');
+          sentDelay = window.setTimeout(() => {
+            setStatus('sent');
+            setInputText("");
+          }, 300); // Button press animation duration
+        }, 600); // Pause before hitting send
       }, 50); // Typing speed
-      return () => clearInterval(typingInterval);
     }, 500);
 
-    return () => clearTimeout(startDelay);
-  }, [isActive]);
+    return () => {
+      if (startDelay) window.clearTimeout(startDelay);
+      if (typingInterval) window.clearInterval(typingInterval);
+      if (sendDelay) window.clearTimeout(sendDelay);
+      if (sentDelay) window.clearTimeout(sentDelay);
+    };
+  }, [isActive, cycle]);
 
   return (
     <>

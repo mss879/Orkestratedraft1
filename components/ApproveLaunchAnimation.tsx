@@ -7,12 +7,12 @@ import { CheckCircle2, MousePointer2, Rocket, CalendarClock, SlidersHorizontal }
 const ApproveLaunchAnimation = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.3 });
-  const [key, setKey] = useState(0);
+  const [cycle, setCycle] = useState(0);
 
   useEffect(() => {
     if (isInView) {
       const interval = setInterval(() => {
-        setKey((prev) => prev + 1);
+        setCycle((prev) => prev + 1);
       }, 9000); // 9s loop
       return () => clearInterval(interval);
     }
@@ -24,45 +24,60 @@ const ApproveLaunchAnimation = () => {
       <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#f97316 1px, transparent 1px)', backgroundSize: '30px 30px', opacity: 0.05 }}></div>
 
       <div className="relative z-10 w-full max-w-sm">
-        <ApprovalSequence key={key} isActive={isInView} />
+        <ApprovalSequence isActive={isInView} cycle={cycle} />
       </div>
     </div>
   );
 };
 
-const ApprovalSequence = ({ isActive }: { isActive: boolean }) => {
+const ApprovalSequence = ({ isActive, cycle }: { isActive: boolean; cycle: number }) => {
   const [step, setStep] = useState(0); // 0: Review, 1: Tweak, 2: Approved, 3: Launching
   const [budget, setBudget] = useState(50);
   const cursorControls = useAnimation();
 
   useEffect(() => {
+    if (!isActive) {
+      cursorControls.stop();
+      cursorControls.set({ x: 300, y: 300, opacity: 0, scale: 1 });
+      return;
+    }
+
+    let cancelled = false;
     const sequence = async () => {
-      if (!isActive) return;
       
       // Initial state
       cursorControls.set({ x: 300, y: 300, opacity: 0 });
       
       // Start
       await cursorControls.start({ x: 300, y: 300, opacity: 1, transition: { duration: 0 } });
+      if (cancelled) return;
       
       // Move to slider
       await cursorControls.start({ x: 200, y: 160, opacity: 1, transition: { duration: 1, delay: 0.5 } });
+      if (cancelled) return;
       
       // Drag slider
       await cursorControls.start({ x: 250, y: 160, opacity: 1, transition: { duration: 1.5 } });
+      if (cancelled) return;
       
       // Move to button
       await cursorControls.start({ x: 180, y: 280, opacity: 1, transition: { duration: 0.8 } });
+      if (cancelled) return;
       
       // Click down
       await cursorControls.start({ scale: 0.8, transition: { duration: 0.1 } });
+      if (cancelled) return;
       
       // Click up & fade
       await cursorControls.start({ scale: 1, opacity: 0, transition: { duration: 0.2, delay: 0.2 } });
     };
 
     sequence();
-  }, [isActive, cursorControls]);
+    return () => {
+      cancelled = true;
+      cursorControls.stop();
+    };
+  }, [isActive, cursorControls, cycle]);
 
   useEffect(() => {
     if (!isActive) {
@@ -81,7 +96,7 @@ const ApprovalSequence = ({ isActive }: { isActive: boolean }) => {
       clearTimeout(t2);
       clearTimeout(t3);
     };
-  }, [isActive]);
+  }, [isActive, cycle]);
 
   // Animate budget slider during step 1
   useEffect(() => {
