@@ -24,8 +24,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/Favicon%20-%20Light.png', type: 'image/png', sizes: '32x32' },
-      { url: '/Favicon%20-%20Dark.png', type: 'image/png', sizes: '16x16' },
+      { url: '/Favicon%20-%20Light.png', type: 'image/png', sizes: '16x16', media: '(prefers-color-scheme: light)' },
+      { url: '/Favicon%20-%20Light.png', type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: light)' },
+      { url: '/Favicon%20-%20Dark.png', type: 'image/png', sizes: '16x16', media: '(prefers-color-scheme: dark)' },
+      { url: '/Favicon%20-%20Dark.png', type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: dark)' },
     ],
     apple: [{ url: '/Favicon%20-%20Light.png', sizes: '180x180' }],
   },
@@ -75,10 +77,10 @@ export const metadata: Metadata = {
       'Orchestrate your existing marketing stack with agentic infrastructure that turns data into campaigns, journeys, and experiments across your channels.',
     images: [
       {
-        url: '/logo.png',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Orkestrate - AI Marketing Orchestration Platform',
+        alt: 'Orkestrate',
       },
     ],
   },
@@ -87,7 +89,7 @@ export const metadata: Metadata = {
     title: 'Orkestrate — Intelligence layer for marketing orchestration',
     description:
       'Orchestrate your existing marketing stack with agentic infrastructure that turns data into campaigns, journeys, and experiments across your channels.',
-    images: ['/logo.png'],
+    images: ['/twitter-image'],
     creator: '@orkestrate',
   },
   verification: {
