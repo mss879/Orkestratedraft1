@@ -77,7 +77,7 @@ export const metadata: Metadata = {
       'Orchestrate your existing marketing stack with agentic infrastructure that turns data into campaigns, journeys, and experiments across your channels.',
     images: [
       {
-        url: '/opengraph-image',
+        url: '/share%20image.png',
         width: 1200,
         height: 630,
         alt: 'Orkestrate',
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     title: 'Orkestrate — Intelligence layer for marketing orchestration',
     description:
       'Orchestrate your existing marketing stack with agentic infrastructure that turns data into campaigns, journeys, and experiments across your channels.',
-    images: ['/twitter-image'],
+    images: ['/share%20image.png'],
     creator: '@orkestrate',
   },
   verification: {
