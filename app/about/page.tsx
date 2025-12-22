@@ -189,7 +189,7 @@ export default function AboutPage() {
                 <p>Executes the best path forward.</p>
                 <div className="pt-4 border-t border-orange-100">
                   <p className="font-bold text-orange-600">
-                    Result: 2.5 hours to orchestrate outcomes that are humanly impossible to scale manually.
+                    Result: 2.5 hours for the same campaign.
                   </p>
                 </div>
               </div>
@@ -242,43 +242,6 @@ export default function AboutPage() {
                 </p>
               </ScrollAnimationWrapper>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 5: Leadership (The Team) */}
-      <section className="py-24 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <ScrollAnimationWrapper className="text-center mb-16">
-            <h2 className="font-black text-4xl md:text-5xl text-gray-900 mb-6">
-              Built by MarTech Veterans.
-            </h2>
-          </ScrollAnimationWrapper>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <ScrollAnimationWrapper className="bg-white rounded-3xl p-8 border border-gray-200 text-center">
-              <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-6" />
-              <h3 className="text-xl font-bold text-gray-900">Founder Name</h3>
-              <p className="text-orange-600 font-medium mb-4">CEO</p>
-              <p className="text-gray-600 italic">"Driving the vision of Agentic Marketing."</p>
-            </ScrollAnimationWrapper>
-
-            <ScrollAnimationWrapper className="bg-white rounded-3xl p-8 border border-gray-200 text-center">
-              <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-6" />
-              <h3 className="text-xl font-bold text-gray-900">Founder Name</h3>
-              <p className="text-orange-600 font-medium mb-4">CTO</p>
-              <p className="text-gray-600 italic">"Architecting the intelligence layer."</p>
-            </ScrollAnimationWrapper>
-
-            <ScrollAnimationWrapper className="bg-white rounded-3xl p-8 border border-gray-200 text-center flex flex-col justify-center">
-              <div className="p-4 bg-orange-50 rounded-full mx-auto mb-6 text-orange-600">
-                <Users className="w-12 h-12" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">Advisors</h3>
-              <p className="text-gray-600 mt-4">
-                Backed by industry leaders who have scaled Shopify's biggest brands.
-              </p>
-            </ScrollAnimationWrapper>
           </div>
         </div>
       </section>
